@@ -2,3 +2,22 @@
   text-align: center;
 }
 
+.todo-item {
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+  margin-left: 1%;
+  align-content: center;
+  align-items: baseline;
+}
+
+input {
+  height: 30px;
+  border-radius: 15px;
+
+}
+button {
+  margin-left: 1%;
+  height: 30px;
+  border-radius: 15px;
+}

@@ -1,4 +1,4 @@
-import { ADD_TODO, COMPLETE_TODO } from '../actions';
+import { ADD_TODO, COMPLETE_TODO, DELETE_TODO } from '../actions';
 
 const initialState = {
   todos: []};
@@ -17,8 +17,12 @@ export const todosReducer = (state = initialState, action) => {
           {...todo, completed: !todo.completed }
           : todo )   
       return { ...state, todos: todos }
-        
 
+    case DELETE_TODO:
+        return {
+            ...state,
+            todos: state.todos.filter( (todo, index) => action.payload !== index )
+        }
     default:
       return state;
   }

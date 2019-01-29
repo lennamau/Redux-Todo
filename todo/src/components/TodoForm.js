@@ -3,17 +3,20 @@ import React from "react";
 const TodoForm = props => {
   return (
     <div>
+        <h2>Redux To Do App</h2>
       <div className="form">
+      <form>
         <input
           name="todoText"
           value={props.todoText}
           type="text"
           onChange={props.handleInputChange}
-          placeholder="Enter here"
+          placeholder="Add task..."
         />
-        <button color="primary" onClick={props.addTodo}>
-          Submit
+        <button onClick={props.addTodo}>
+          Add 
         </button>
+        </form>
       </div>
     </div>
   );

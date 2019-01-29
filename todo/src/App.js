@@ -3,7 +3,7 @@ import './App.css';
 import Todos from './components/Todos';
 import TodoForm from './components/TodoForm';
 import { connect } from 'react-redux';
-import { addTodo } from './actions';
+import { addTodo, deleteTodo } from './actions';
 
 class App extends Component {
   constructor(props) {
@@ -14,10 +14,12 @@ class App extends Component {
   }
 
   handleInputChange = e => {
+    e.preventDefault();
     this.setState ({[e.target.name]: e.target.value})
   }
 
-  addTodo = () => {
+  addTodo = e => {
+    e.preventDefault();
     const { todoText } = this.state;
     const newTodo = {
       id: this.props.todos.length + 1,
@@ -27,6 +29,10 @@ class App extends Component {
     this.props.addTodo(newTodo);
     this.setState({ todoText: '' });
   };
+  deleteTodo = (e, index) => {
+    e.preventDefault();
+    this.props.deleteTodo(index)
+  }
 
   render() {
     return (
@@ -34,8 +40,10 @@ class App extends Component {
       <TodoForm 
         handleInputChange={this.handleInputChange}
         todoText={this.state.todoText}
-        addTodo={this.addTodo} />
-      <Todos todos={this.props.todos} />
+        addTodo={this.addTodo}
+         />
+      <Todos todos={this.props.todos}
+        deleteTodo={this.deleteTodo} />
         
       </div>
     );
@@ -48,4 +56,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { addTodo }) (App);
+export default connect(mapStateToProps, { addTodo, deleteTodo }) (App);
