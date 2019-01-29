@@ -3,7 +3,7 @@ import { ADD_TODO, COMPLETE_TODO } from '../actions';
 const initialState = {
   todos: []};
 
-export const rootReducer = (state = initialState, action) => {
+export const todosReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
       return {
@@ -16,7 +16,9 @@ export const rootReducer = (state = initialState, action) => {
          (todo.id === id) ?
           {...todo, completed: !todo.completed }
           : todo )   
-      return Object.assign({}, state, { todos: todos });
+      return { ...state, todos: todos }
+        
+
     default:
       return state;
   }
