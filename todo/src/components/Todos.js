@@ -9,13 +9,13 @@ const Todos = props => {
         
       {props.todos.map((todo, index) => (
         <div className='todo-item'>  
-        <p
+        <div className='task'
           style={todo.completed ? style : null}
           onClick={() => props.completeTodo(todo.id)}
           key={todo.id}
         >
           {todo.text}
-        </p>
+        </div>
         <button className= "delete" onClick={e => props.deleteTodo(e, index)}>X</button>
         </div>
       ))}
