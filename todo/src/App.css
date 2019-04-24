@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1%;
+  margin-left: 1%;
+  align-content: flex-start;
+  align-items: baseline;
+  line-height: 0;
+}
+
+input {
+  height: 30px;
+  border-radius: 15px;
+  font-size: 20px
+
+
+}
+button {
+  margin-left: 1%;
+  height: 35px;
+  border-radius: 15px;
+}
+
+.task {
+  font-size: 25px;
+}
